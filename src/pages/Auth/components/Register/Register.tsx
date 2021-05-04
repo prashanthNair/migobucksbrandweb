@@ -1,28 +1,36 @@
 import React from 'react';
 
-import { useHistory } from 'react-router';
+import {
+  Redirect,
+  Route,
+  Switch,
+  useHistory,
+} from 'react-router-dom';
 
 import style from './Register.module.scss';
+import RegisterRouting from './Register.routing';
 
 function Register() {
-    const history = useHistory();
-    const handleSubmit = (e: any) => {
-        e.preventDefault()
-        history.push('/auth/login')
-    }
+  const history = useHistory();
 
-    return (
-        <div className={style['container']}>
-            <div className={style['card']}>
-                <h3>Register</h3>
-                <form onSubmit={handleSubmit}>
-                    <input type="text" />
-                    <input type="password" />
-                    <button type="submit" >Submit</button>
-                </form>
-            </div>
-        </div>
-    )
+  history.listen((location, action) => {
+    console.log("on route change", location, action);
+  });
+  return (
+    <div className={style["container"]}>
+      <div className={style["container-func"]}>
+        <Switch>
+          <Route exact path="/auth/register">
+            <Redirect to="/auth/register/brand-type" />
+          </Route>
+          {RegisterRouting.map((entry) => {
+            return <Route {...entry} />;
+          })}
+        </Switch>
+      </div>
+      <div className={style["container-img"]}></div>
+    </div>
+  );
 }
 
-export default Register
+export default Register;

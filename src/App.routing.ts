@@ -1,5 +1,5 @@
-import Auth from "./pages/Auth/Auth";
-import Dashboard from "./pages/Dashboard/Dashboard";
+import Auth from './pages/Auth/Auth';
+import Layout from './pages/Layout/Layout';
 
 const AppRouting = [
     {
@@ -9,9 +9,10 @@ const AppRouting = [
 
     },
     {
-        key: "dashboard",
-        path: "/dashboard",
-        component: Dashboard
+        key: "layout",
+        path: "/layout",
+        component: Layout
+
     }
 ]
 
