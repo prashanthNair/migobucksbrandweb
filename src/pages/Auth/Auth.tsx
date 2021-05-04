@@ -6,19 +6,27 @@ import {
   Switch,
 } from 'react-router-dom';
 
+import Header from '../shared/Header/Header';
+import style from './Auth.module.scss';
 import AuthRouting from './Auth.routing';
 
 function Auth() {
-    return (
-        <div>
-            <Switch>
-                <Route exact path="/auth/">
-                    <Redirect to="/auth/login" />
-                </Route>
-                {AuthRouting.map((entry) => { return (<Route {...entry} />) })}
-            </Switch>
-        </div>
-    )
+  return (
+    <div>
+      <Header layout="auth" />
+      <div className={style["page-container"]}>
+          <Switch>
+            <Route exact path="/auth/">
+              <Redirect to="/auth/register" />
+            </Route>
+            {AuthRouting.map((entry) => {
+              return <Route {...entry} />;
+            })}
+          </Switch>
+      </div>
+          
+    </div>
+  );
 }
 
-export default Auth
+export default Auth;

@@ -1,8 +1,10 @@
 import React from 'react';
 
+import style from './Button.module.scss';
+
 function Button(props: any) {
     return (
-        <button className={props.className} onClick={props.onClick} type={props.type}>{props.label}</button>
+        <button className={style[props.className]} onClick={props.onClick} type={props.type}>{props.label}</button>
     )
 }
 

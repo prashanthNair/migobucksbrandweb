@@ -1,14 +1,17 @@
+import './App.scss';
+
 import React from 'react';
+
 import {
   BrowserRouter as Router,
   Redirect,
-  Route, Switch
-} from "react-router-dom";
+  Route,
+  Switch,
+} from 'react-router-dom';
+
 import AppRouting from './App.routing';
-import './App.scss';
 
 const App = () => {
-
   return (
     <Router>
       <Switch>

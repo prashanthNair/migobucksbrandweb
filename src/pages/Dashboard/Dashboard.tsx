@@ -1,6 +1,6 @@
-import React from 'react'
-import style from './Dashboard.module.scss'
+import React from 'react';
 
+import style from './Dashboard.module.scss';
 
 function Dashboard() {
     return (
