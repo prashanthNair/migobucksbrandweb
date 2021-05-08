@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import Button from '../../../../components/Button/Button';
 import ProductFeature from './ProductFeature/ProductFeature';
@@ -8,6 +9,11 @@ import ProductMedia from './ProductMedia/ProductMedia';
 import ProductPlan from './ProductPlan/ProductPlan';
 
 function ProductAddLayout() {
+    const history = useHistory();
+    const navigateOtp = () => {
+      history.push("/account/myAccount");
+    };
+
     return (
         <div className={style['product-layout']}>
             <div className={style['product-head']}>
@@ -26,7 +32,7 @@ function ProductAddLayout() {
                 <ProductMedia />
             </div>
             <div className={style['button-contain']}>
-                <Button className="product-submit" label="Submit"/>
+                <Button className="product-submit" label="Submit" onClick={navigateOtp}/>
             </div>
         </div>
     )
