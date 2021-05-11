@@ -1,4 +1,3 @@
-import './App.scss';
 
 import React from 'react';
 
@@ -7,9 +6,8 @@ import {
   Redirect,
   Route,
   Switch,
-} from 'react-router-dom';
-
-import AppRouting from './App.routing';
+} from 'react-router-dom'; 
+import AppRouting from './app.routing';
 
 const App = () => {
   return (

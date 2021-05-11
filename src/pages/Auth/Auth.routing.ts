@@ -1,7 +1,8 @@
-import Login from './components/Login/Login';
-import RegisterSuccess from './components/register-success/register-success';
-import Register from './components/Register/Register';
+import Login from "./login/Login";
+import RegisterSuccess from "./register-success/register-success";
+import Register from "./register/Register";
 
+ 
 const AuthRouting = [
 
     {
