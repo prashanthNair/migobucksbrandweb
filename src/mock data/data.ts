@@ -3,12 +3,14 @@ export const data = [
     {
         "displayName": "Quantity Availabe",
         "dataType": "text",
-        "fieldName": "qantity"
+        "fieldName": "qantity",
+        "filedPosition":1
     },
     {
         "displayName": "Shelf Life",
         "dataType": "list",
         "fieldName": "shelfLife",
+        "filedPosition":2,
         "data": [
             {
                 "value": "1",
@@ -27,21 +29,25 @@ export const data = [
     {
         "displayName": "Max.Retail Price(INR)",
         "dataType": "number",
-        "fieldName": "mrp"
+        "fieldName": "mrp",
+        "filedPosition":3,
     },
     {
         "displayName": "Loyalty Point%",
         "dataType": "number",
-        "fieldName": "loyaltyPoint"
+        "fieldName": "loyaltyPoint",        
+        "filedPosition":4,
     },
     {
         "displayName": "InStock",
         "dataType": "number",
-        "fieldName": "inStock"
+        "fieldName": "inStock",
+        "filedPosition":5,
     },
     {
         "displayName": "Add a key point",
         "dataType": "array",
-        "fieldName": "keyPoints"
+        "fieldName": "keyPoints",
+        "filedPosition":6,
     }
 ]
