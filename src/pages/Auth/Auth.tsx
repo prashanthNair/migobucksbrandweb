@@ -6,8 +6,8 @@ import {
 } from 'react-router-dom'; 
 import Header from '../../shared-components/header/header';
  
-import style from './auth.module.scss'; 
-import AuthRouting from './auth.routing';
+import style from './Auth.module.scss'; 
+import AuthRouting from './Auth.routing';
 
 function Auth() {
   return (

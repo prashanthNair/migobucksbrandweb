@@ -1,6 +1,6 @@
  
 
-import Auth from "./pages/auth/auth";
+import Auth from "./pages/Auth/Auth";
 import ProductContainer from "./pages/inventory/ProductContainer";
 import ProductDetails from "./pages/inventory/ProductDetails/ProductDetails";
 
