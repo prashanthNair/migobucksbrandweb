@@ -3,7 +3,7 @@ import React from 'react';
 import Checkbox from '@material-ui/core/Checkbox'; 
 import setting from '../../../assets/setting.png' 
 import style from './ProductList.module.scss';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Button from '../../../components/Button/Button';
 
 function ProductList() {
@@ -17,6 +17,7 @@ function ProductList() {
         <div>
           <label className={style["prod-label"]}>Active Products (4)</label>
           <img src={setting} /> 
+          <Link to="/products/add" >Go to product</Link>
           <Button className="product-add" label="Add New +"   onClick={navigateNext} />
         </div>
         <div className={style["sub-menu"]}>

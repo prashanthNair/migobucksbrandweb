@@ -1,6 +1,8 @@
  
-import Layout from "./pages/Products/ProductContainer";
+
 import Auth from "./pages/auth/auth";
+import ProductContainer from "./pages/inventory/ProductContainer";
+import ProductDetails from "./pages/inventory/ProductDetails/ProductDetails";
 
  
 
@@ -12,9 +14,9 @@ const AppRouting = [
 
     },
     {
-        key: "product",
-        path: "/product",
-        component: Layout
+        key: "products",
+        path: "/products",
+        component: ProductContainer
 
     } 
 ]

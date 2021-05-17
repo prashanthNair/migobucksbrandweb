@@ -10,7 +10,7 @@ export const data = [
         "displayName": "Shelf Life",
         "dataType": "list",
         "fieldName": "shelfLife",
-        "filedPosition":2,
+        "k":2,
         "data": [
             {
                 "value": "1",

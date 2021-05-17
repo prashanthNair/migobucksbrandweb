@@ -1,12 +1,10 @@
 import React from 'react';
 import Button from '../../../components/Button/Button';
   
-// import style from '../../containers/ContainerStyles.module.scss' 
-import style from '../ProductContainer.module.scss'
-import ProductFeature from '../ProductFeature/ProductFeature';
-import ProductInfo from '../ProductInfo/ProductInfo';
+import style from '../ProductContainer.module.scss'  
 import ProductMedia from '../ProductMedia/ProductMedia';
-import ProductPlan from '../ProductPlan/ProductPlan';
+import ProductPlan from '../ProductKeyPoints/ProductKeyPoints';
+import ProductHearder from '../ProductHearder/ProductHeader';
 
 function AddProduct() {
     return (
@@ -15,13 +13,13 @@ function AddProduct() {
                 <div className={style['heading']}>Add a New Product</div>
             </div>
             <div>
-                <ProductInfo />
+                <ProductHearder />
             </div>
             <div>
                 <ProductPlan />
             </div>
             <div>
-                <ProductFeature />
+                
             </div>
             <div>
                 <ProductMedia />
