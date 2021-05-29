@@ -47,13 +47,18 @@ export default function BrandType() {
 
   return (
     <Container>
-      <div className={style['head-container']}>
-      <div className={style["head"]}>What type of brand you are ?</div>
-      <span className={style["sub-head"]}>
-        The best brand boosting strategies are one the way
-      </span>
-      </div>
+
       <div className={style["brand-option"]}>
+
+      <div className={style["card"]+' '+style["brandHeader"]}>
+        <div className={style['head-containe']}>
+          <div className={style["head"]+' '+style["brandHeaderText"]}>What type of brand you are ?</div>
+          <span className={style["sub-head"]+' '+style["brandHeaderSubText"]}>
+            The best brand boosting strategies are one the way
+          </span>
+        </div>
+      </div>
+
         {brandTypes.map((data, index) => (
           <Brands {...data} key={index}/>
         ))}

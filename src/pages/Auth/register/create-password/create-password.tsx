@@ -50,7 +50,7 @@ function CreatePassword(props: Props) {
           Create Account
         </Button>
         <div className={style["terms"]}>
-        By creating, you are agree with our Terms & Conditions
+        By creating, you are agree with our <a className={style["color-blue"]}>Terms & Conditions</a>
       </div>
       </div>
     </Container>

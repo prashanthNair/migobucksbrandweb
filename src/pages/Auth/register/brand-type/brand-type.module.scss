@@ -20,7 +20,8 @@
   align-items: center;
 }
 .card {
-  background: rgba(224, 231, 255, 0.2);
+  // background: rgba(224, 231, 255, 0.2);
+  background-color: #fff !important;
   padding: 6px 22px 9px 16px;
   border-radius: 5px;
   border: solid 1px #e0e7ff;
@@ -31,6 +32,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+  
   .card-content {
     text-align: left;
     line-height: 1.6;
@@ -55,4 +57,30 @@
     align-self: flex-end;
     margin-top: 20px;
 }
+}
+
+
+
+.brandHeader
+{
+  background: #f9f9f9 !important;
+  border: none !important;
+  padding-left: 0 !important;
+  // font-weight: 500 !important;
+  font-size: 28px !important;
+  margin-left: 0 !important;
+  margin-top: 55px;
+  margin-bottom: 30px;
+}
+
+.brandHeaderText
+{
+  font-weight: 500;
+  font-size: 28px;
+  margin-bottom: 0;
+}
+
+.brandHeaderSubText
+{
+  font-size: 20px;
 }
