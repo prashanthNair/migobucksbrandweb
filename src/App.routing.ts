@@ -1,16 +1,17 @@
- 
-
-import Auth from "./pages/auth/auth";
+import { RouteProps } from 'react-router-dom';
+import Auth from "./pages/Auth/Auth";
 import ProductContainer from "./pages/inventory/ProductContainer";
 import ProductDetails from "./pages/inventory/ProductDetails/ProductDetails";
 
- 
+export interface IAppRouting extends RouteProps {
+    key: string;
+}
 
-const AppRouting = [
+const AppRouting: IAppRouting[] = [
     {
         key: "auth",
         path: "/auth",
-        component: Auth
+        component: Auth,
 
     },
     {
@@ -18,8 +19,8 @@ const AppRouting = [
         path: "/products",
         component: ProductContainer
 
-    } 
-]
+    }
+];
 
 
 export default AppRouting;

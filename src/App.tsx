@@ -1,24 +1,19 @@
-
 import React from 'react';
-
 import {
-  BrowserRouter as Router,
   Redirect,
   Route,
   Switch,
-} from 'react-router-dom'; 
-import AppRouting from './app.routing';
+} from 'react-router-dom';
+import AppRouting, { IAppRouting } from './App.routing';
 
 const App = () => {
   return (
-    <Router>
       <Switch>
         <Route exact path='/'>
           <Redirect to="/auth"></Redirect>
         </Route>
-        {AppRouting.map((entry) => { return (<Route {...entry} />) })}
+        { AppRouting.map((props: IAppRouting) => <Route {...props} />) }
       </Switch>
-    </Router>
   );
 }
 

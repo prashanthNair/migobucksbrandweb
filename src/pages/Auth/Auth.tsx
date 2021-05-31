@@ -4,15 +4,15 @@ import {
   Route,
   Switch,
 } from 'react-router-dom'; 
-import Header from '../../shared-components/header/header';
+import Header from '../../shared-components/Header';
  
-import style from './auth.module.scss'; 
-import AuthRouting from './auth.routing';
+import style from './Auth.module.scss'; 
+import AuthRouting from './Auth.routing';
 
 function Auth() {
   return (
     <div>
-      <Header layout="auth" />
+      <Header />
       <div className={style["page-container"]}>
           <Switch>
             <Route exact path="/auth/">
