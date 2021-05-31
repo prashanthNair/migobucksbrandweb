@@ -22,7 +22,7 @@
             text-decoration: none;
             color: #000;
             margin-left: 50px;
-            padding-bottom: 6px;
+            padding-bottom: 3px;
             font-size: 15px;
             font-family: 'Heebo', sans-serif;
             font-weight: 400;
@@ -35,7 +35,7 @@
         }
 
         .active-nav-link {
-            border-bottom: 5px solid #ffc200;
+            border-bottom: 4px solid #ffc200;
            
         }
     }
@@ -58,7 +58,7 @@
 
         .notification-badge {
             sup {
-                top: 12px;
+                top: 8px;
                 right: 35px;
                 background-color: #ffc200;
                 font-size: 10px;

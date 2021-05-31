@@ -1,18 +1,19 @@
 import React, { useCallback, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Input, Avatar, Button, Badge } from 'antd';
-import { BellOutlined, DownOutlined } from '@ant-design/icons'
+import { BellOutlined, DownOutlined, UserOutlined } from '@ant-design/icons'
 import styles from './Authenticated.module.scss';
 
 
 export interface IAuthenticatedHeaderProps {
     searchPlaceholder?: string;
     onSearchChange?: (val: string) => void;
+    onNotificationClick?: () => void;
     onSearch?: (val: string) => void;
 }
 
 const AuthenticatedHeader: React.FC<IAuthenticatedHeaderProps> = (props) => {
-    const { searchPlaceholder, onSearch, onSearchChange } = props;
+    const { searchPlaceholder, onSearch, onSearchChange, onNotificationClick } = props;
     const [seachVal, setSearchVal] = useState<string>('');
 
     const handleSearchChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,6 +30,12 @@ const AuthenticatedHeader: React.FC<IAuthenticatedHeaderProps> = (props) => {
             }
         }
     }, [onSearch, seachVal]);
+
+    const handleNotificationClick = useCallback(() => {
+        if (onNotificationClick) {
+            onNotificationClick()
+        }
+    }, [onNotificationClick]);
 
     return (
         <div className={styles['container']}>
@@ -47,12 +54,11 @@ const AuthenticatedHeader: React.FC<IAuthenticatedHeaderProps> = (props) => {
             <div className={styles['account-container']}>
                     <Avatar
                         style={{ background: '#ffbf00' }}
-                        icon={"P"}
-
+                        icon={<UserOutlined />}
                     />
                     <DownOutlined className={styles['account-dropdown-arrow']} />
                 <Badge showZero className={styles['notification-badge']} count={2}>
-                    <Button shape={"round"} className={styles['notification-icon']} icon={<BellOutlined />} />
+                    <Button onClick={handleNotificationClick} shape={"round"} className={styles['notification-icon']} icon={<BellOutlined />} />
                 </Badge>
             </div>
         </div>

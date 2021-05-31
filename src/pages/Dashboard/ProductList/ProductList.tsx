@@ -4,7 +4,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import setting from '../../../assets/setting.png' 
 import style from './ProductList.module.scss';
 import { Link, useHistory } from 'react-router-dom';
-import Button from '../../../components/Button/Button';
+import Button from '../../../components/Button';
 
 function ProductList() {
   const history = useHistory();

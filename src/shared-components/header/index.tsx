@@ -1,19 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import styles from './Header.module.scss';
 
 import AuthenticatedHeader from './Authenticated';
 import DefaultHeader from './Default';
+import Notifications from './Notifications';
 
 import logo from '../../assets/BrandsLogo.svg'
 
 const Header: React.FC = (props) => {
 
     const [ isAuthenticated, setAuthenticated ] = useState<boolean>(true);
+    const [notificationWindowOpen, setNotificationWindowOpen] = useState<boolean>(false);
 
     useEffect(() => {
         //TODO: Implement function to check user auth and setAuthenticated -> true
     }, []);
+
+    const toggleNotificationWindow = useCallback(() => setNotificationWindowOpen(!notificationWindowOpen), [notificationWindowOpen]);
 
     return (
         <div className={styles['header-container']}>
@@ -22,9 +26,14 @@ const Header: React.FC = (props) => {
             </div>
             {
                 isAuthenticated
-                ? <AuthenticatedHeader searchPlaceholder="Search" />
+                ? <AuthenticatedHeader onNotificationClick={toggleNotificationWindow} searchPlaceholder="Search" />
                 : <DefaultHeader />
             }
+            <div>
+                {
+                    notificationWindowOpen && <Notifications />
+                }
+            </div>
         </div>
     )
 }

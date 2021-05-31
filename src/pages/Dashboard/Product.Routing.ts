@@ -1,8 +1,8 @@
 import { RouteProps } from 'react-router-dom';
-import AddProduct from "./AddProduct/Product";
 import ProductDetails from "./ProductDetails/ProductDetails";
 import ProductList from "./ProductList/ProductList";
 import MyInventory from './MyInventory/MyInventory';
+
 export interface IProductRouting extends RouteProps {
     key: string;
 }
@@ -10,18 +10,18 @@ export interface IProductRouting extends RouteProps {
 const ProductRouting: IProductRouting[] = [
 
     {
-        path: '/products/add',
         key: 'add',
+        path: '/products/add',
         component: ProductDetails
     }, 
     {
-        path: '/products/list',
         key: 'products',
+        path: '/products/list',
         component: ProductList
     },
     {
         key: "myInventory",
-        path: "/products/my-inventory",
+        path: "/dashboard/my-inventory",
         component: MyInventory,
     }
 ]

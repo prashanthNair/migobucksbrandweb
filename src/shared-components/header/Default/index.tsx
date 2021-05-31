@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Button from '../../../components/Button/Button';
+import Button from '../../../components/Button';
 import styles from './Default.module.scss';
 
 
@@ -14,8 +14,8 @@ const DefaultHeader: React.FC = (props) => {
                 <NavLink to=''>FAQ</NavLink>
                 <NavLink to=''>Support</NavLink>
                 <span className={styles['nav-button-container']}>
-                    <Button label={"Register"} variant="auth-head-reg" />
-                    <Button label={"Login"} variant="auth-head-login" />
+                    <Button label={"Register"} variant="primary" />
+                    <Button style={{ marginLeft: '10px' }} label={"Login"} variant="primary-outlined" />
                 </span>
             </div>
         </div>

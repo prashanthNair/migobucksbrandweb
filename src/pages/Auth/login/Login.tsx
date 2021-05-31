@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
  
 import { useHistory } from 'react-router-dom';
 import { submitLogin } from '../../../actions/auth.actions';
-import Button from '../../../components/Button/Button';
+import Button from '../../../components/Button';
 import style from './Login.module.scss';
 
 const Login = () => {
@@ -25,8 +25,8 @@ const navigate = () => {
                 <form onSubmit={handleSubmit}>
                     <input type="text" />
                     <input type="password" />
-                    <Button type="submit" label="Submit"/>
-                    <Button type="button" onClick={navigate} label="Reister"/>
+                    <Button variant="primary" type="submit" label="Submit"/>
+                    <Button variant="primary" type="button" onClick={navigate} label="Reister"/>
                 </form>
             </div>
         </div>

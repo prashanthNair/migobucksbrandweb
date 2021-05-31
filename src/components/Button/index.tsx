@@ -3,15 +3,16 @@ import React, { useCallback } from 'react';
 import styles from './Button.module.scss';
 
 export interface IButtonProps {
-    label?: string;
-    variant?: "plan-button" | "product-submit" | "product-add" | "auth-head-reg" | "auth-head-login";
+    label: string;
+    variant?: "primary" | "primary-outlined";
     className?: string;
     type?: "button" | "submit" | "reset";
+    style?: React.CSSProperties
     onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 const Button: React.FC<IButtonProps> = (props) => {
-    const { className, variant, label, onClick, type } = props;
+    const { className, variant, label, onClick, type, style } = props;
 
     const handleClick = useCallback((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         if (onClick) {
@@ -24,6 +25,7 @@ const Button: React.FC<IButtonProps> = (props) => {
             className={`${variant && styles[variant]} ${className}`}
             onClick={handleClick}
             type={type ? type : "button"}
+            style={style}
         >
             { label }
         </button>
