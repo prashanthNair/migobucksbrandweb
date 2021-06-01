@@ -1,0 +1,16 @@
+.page-container {
+  margin-top: 10px;
+}
+
+.sidebar-container {
+  height: 98vh;
+  width: 270px;
+  margin-left: 10px;
+  float: left;
+}
+.main-content-container {
+  height: 98vh;
+  // width: calc(100vw - 270px);
+  float: left;
+  overflow-y: scroll;
+}
