@@ -10,7 +10,7 @@ export const data = [
         "displayName": "Shelf Life",
         "dataType": "list",
         "fieldName": "shelfLife",
-        "k":2,
+        "filedPosition":2,
         "data": [
             {
                 "value": "1",
@@ -30,7 +30,7 @@ export const data = [
         "displayName": "Max.Retail Price(INR)",
         "dataType": "number",
         "fieldName": "mrp",
-        "filedPosition":3,
+        "filedPosition": 3,
     },
     {
         "displayName": "Loyalty Point%",

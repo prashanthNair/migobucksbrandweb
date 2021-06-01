@@ -1,5 +1,11 @@
-.tab-group {
+.container {
     padding: 0px 20px;
+    position: absolute;
+    width: calc(100vw - 250px);
+    // width: 100%;
+}
+
+.tab-group {
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
 
