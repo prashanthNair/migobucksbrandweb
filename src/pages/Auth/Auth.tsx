@@ -4,7 +4,7 @@ import {
   Route,
   Switch,
 } from 'react-router-dom'; 
-import Header from '../../shared-components/Header';
+import Header from '../../components/Header';
  
 import style from './Auth.module.scss'; 
 import AuthRouting from './Auth.routing';

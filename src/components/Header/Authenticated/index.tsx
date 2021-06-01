@@ -47,7 +47,7 @@ const AuthenticatedHeader: React.FC<IAuthenticatedHeaderProps> = (props) => {
                 onKeyPress={handleSearchKeyPress}
             />
             <div className={styles['navbar-items']}>
-                <NavLink activeClassName={styles['active-nav-link']} to={"/products"}>Home</NavLink>
+                <NavLink activeClassName={styles['active-nav-link']} to={"/dashboard"}>Home</NavLink>
                 <NavLink activeClassName={styles['active-nav-link']} to={"/about-us"}>About us</NavLink>
                 <NavLink activeClassName={styles['active-nav-link']} to={"/help"}>Help</NavLink>
             </div>

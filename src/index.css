@@ -11,11 +11,6 @@ body {
   zoom: 0.9;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 textarea:focus, input:focus{
   outline: none;
 }

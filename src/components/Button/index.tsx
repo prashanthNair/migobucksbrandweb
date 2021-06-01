@@ -26,6 +26,7 @@ const Button: React.FC<IButtonProps> = (props) => {
             onClick={handleClick}
             type={type ? type : "button"}
             style={style}
+
         >
             { label }
         </button>

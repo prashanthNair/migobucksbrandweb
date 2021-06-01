@@ -1,6 +1,5 @@
 import React from 'react';
 import { Avatar } from 'antd';
-import { NavLink } from 'react-router-dom';
 import MenuGroup, { IMenuLinks } from './MenuGroup';
 import styles from './Sidebar.module.scss';
 

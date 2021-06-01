@@ -18,20 +18,27 @@ const Header: React.FC = (props) => {
     }, []);
 
     const toggleNotificationWindow = useCallback(() => setNotificationWindowOpen(!notificationWindowOpen), [notificationWindowOpen]);
+    const handleNotificationOnClickOutside = useCallback(() => setNotificationWindowOpen(false), []);
 
     return (
         <div className={styles['header-container']}>
             <div className={styles['logo']}>
-                <img src={logo} alt="logo" />
+                <img src={logo} alt="migobucks-logo" />
             </div>
             {
                 isAuthenticated
-                ? <AuthenticatedHeader onNotificationClick={toggleNotificationWindow} searchPlaceholder="Search" />
+                ? <AuthenticatedHeader 
+                    onNotificationClick={toggleNotificationWindow} 
+                    searchPlaceholder="Search" 
+                    />
                 : <DefaultHeader />
             }
             <div>
                 {
-                    notificationWindowOpen && <Notifications />
+                    notificationWindowOpen 
+                    && <Notifications 
+                        onClickOutside={handleNotificationOnClickOutside} 
+                        />
                 }
             </div>
         </div>

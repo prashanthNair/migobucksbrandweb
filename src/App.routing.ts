@@ -1,10 +1,10 @@
 import { RouteProps } from 'react-router-dom';
 import Auth from "./pages/Auth/Auth";
-import ProductContainer from "./pages/Dashboard/ProductContainer";
-import ProductDetails from "./pages/Dashboard/ProductDetails/ProductDetails";
+import DashboardLayout from "./pages/Dashboard/DashboardLayout";
 
 export interface IAppRouting extends RouteProps {
     key: string;
+    protected?: boolean;
 }
 
 const AppRouting: IAppRouting[] = [
@@ -17,7 +17,8 @@ const AppRouting: IAppRouting[] = [
     {
         key: "dashboard",
         path: "/dashboard",
-        component: ProductContainer
+        protected: true,
+        component: DashboardLayout,
 
     }
 ];

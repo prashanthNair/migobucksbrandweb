@@ -1,21 +1,17 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
-import {
-  Route,
-  Switch,
-} from 'react-router-dom';
-
-import Header from '../../shared-components/Header';
+import Header from '../../components/Header';
 import Sidebar, { IBrandInfo } from '../../components/Dashboard/Sidebar';
-import styles from './ProductContainer.module.scss'
-import ProductRouting, { IProductRouting } from './Product.Routing';
+import styles from './Dashboard.module.scss'
+import DashboardRouting, { IDashboardRouting } from './Dashboard.Routing';
 
 const brandInfo: IBrandInfo = {
   name: "Ashirvad",
   category: "Food Product",
 }
 
-function ProductContainer() {
+const DashboardLayout: React.FC = () =>  {
   return (
     <div className={styles["page-layout"]}>
       <Header />
@@ -25,7 +21,7 @@ function ProductContainer() {
         </div>
         <div className={styles['main-content-container']}>
           <Switch>
-            { ProductRouting.map((props: IProductRouting) => <Route {...props} />) }
+            { DashboardRouting.map((props: IDashboardRouting) => <Route {...props} />) }
           </Switch> 
         </div>
       </div>
@@ -33,4 +29,4 @@ function ProductContainer() {
   );
 }
 
-export default ProductContainer;
+export default DashboardLayout;

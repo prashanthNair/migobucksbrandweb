@@ -3,11 +3,11 @@ import ProductDetails from "./ProductDetails/ProductDetails";
 import ProductList from "./ProductList/ProductList";
 import MyInventory from './MyInventory/MyInventory';
 
-export interface IProductRouting extends RouteProps {
+export interface IDashboardRouting extends RouteProps {
     key: string;
 }
 
-const ProductRouting: IProductRouting[] = [
+const DashboardRouting: IDashboardRouting[] = [
 
     {
         key: 'add',
@@ -26,4 +26,4 @@ const ProductRouting: IProductRouting[] = [
     }
 ]
 
-export default ProductRouting;
+export default DashboardRouting;
