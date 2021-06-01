@@ -1,10 +1,9 @@
 import axios from 'axios';
+import apiConfig from '../config/api';
 
-const { location } = window;
-const { protocol, hostname, port } = location;
-const SERVER_PORT = 8000;
-
-const apiUrl = `${protocol}//${hostname}:${port === '3000' ? SERVER_PORT : port}/api/v1`;
+const { NODE_ENV } = process.env;
+const { url: baseUrl } = NODE_ENV === "production" ? apiConfig['production'] : apiConfig['development'];
+const apiUrl = `${baseUrl}/api/v1`;
 
 const authApiUrl = `${apiUrl}/auth`;
 const brandApiUrl = `${apiUrl}/brand`;
