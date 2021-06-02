@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Input, Avatar, Button, Badge } from 'antd';
 import { BellOutlined, DownOutlined, UserOutlined } from '@ant-design/icons'
 import styles from './Authenticated.module.scss';
-
+import PageviewOutlinedIcon from '@material-ui/icons/PageviewOutlined';
 
 export interface IAuthenticatedHeaderProps {
     searchPlaceholder?: string;
@@ -39,6 +39,7 @@ const AuthenticatedHeader: React.FC<IAuthenticatedHeaderProps> = (props) => {
 
     return (
         <div className={styles['container']}>
+            <div className={styles['navbar-item']}>
             <Input 
                 value={seachVal} 
                 placeholder={searchPlaceholder} 
@@ -46,6 +47,8 @@ const AuthenticatedHeader: React.FC<IAuthenticatedHeaderProps> = (props) => {
                 onChange={handleSearchChange}
                 onKeyPress={handleSearchKeyPress}
             />
+            <PageviewOutlinedIcon className={styles['search-icon']}/>
+            </div>
             <div className={styles['navbar-items']}>
                 <NavLink activeClassName={styles['active-nav-link']} to={"/dashboard"}>Home</NavLink>
                 <NavLink activeClassName={styles['active-nav-link']} to={"/about-us"}>About us</NavLink>

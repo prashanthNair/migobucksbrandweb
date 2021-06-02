@@ -6,13 +6,27 @@
     > * {
         display: inline;
     }
+    .navbar-item{
+        position: relative;
+       
+    }
 
     .search-input {
-        width: 374px;
-        height: 32px;
+        width: 270px;
+        height: 30px;
         border-radius: 6px;
         border: solid 1px #dde4eb;
         padding: 4px 14px 4px 9px;
+        
+    }
+    .search-icon{
+        position: absolute;
+        right: 0px;
+        color:#a8abaf;
+        font-size: xx-large;
+        border: none;
+                    
+        
     }
 
     .navbar-items {
@@ -21,11 +35,11 @@
         a {
             text-decoration: none;
             color: #000;
-            margin-left: 50px;
+            margin-left: 30px;
             padding-bottom: 3px;
             font-size: 15px;
             font-family: 'Heebo', sans-serif;
-            font-weight: 400;
+            font-weight: 500;
 
 
             :visited, :active {
