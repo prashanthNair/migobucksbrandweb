@@ -15,7 +15,7 @@ import {
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 
-import Dropdown from '../../../../components/dropdown/dropdown';
+import Dropdown from '../../../../components/Dropdown';
 import TextBox from '../../../../components/text-box/text-box';
 import style from './sign-up.module.scss';
 
@@ -92,9 +92,7 @@ export default function SignUp() {
             placeholder="Eg. ABC Technologies Private Limited"
           />
           <Dropdown
-            label="Registration Type"
-            id="type"
-            name="type"
+            placeholder="Registration Type"
             options={[{ value: 1, label: "Private Limited" }]}
           />
           <TextBox

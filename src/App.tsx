@@ -3,7 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import ProtectedRoute from './components/Route/Protected';
 import AppRouting, { IAppRouting } from './App.routing';
 
-const App = () => {
+const App: React.FC = () => {
   return (
       <Switch>
         <Route exact path='/'>

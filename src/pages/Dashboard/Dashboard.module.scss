@@ -10,7 +10,8 @@
 }
 .main-content-container {
   height: 98vh;
-  // width: calc(100vw - 270px);
+  float: left;
+  width: calc(100vw - 250px);
   float: left;
   overflow-y: scroll;
 }

@@ -9,7 +9,7 @@ import {
 } from '@material-ui/core';
  
 import style from './register-brand.module.scss'; 
-import Dropdown from '../../../../components/dropdown/dropdown';
+import Dropdown from '../../../../components/Dropdown';
 import TextBox from '../../../../components/text-box/text-box';
 
 interface Props { }
@@ -28,8 +28,8 @@ function RegisterBrand(props: Props) {
             <div className={style['sub-head']}>Let's show you, best services available for you</div>
             <div className={style['form-container']}>
                 <TextBox id="brandName" name="brandName" label="Do you have a Registered brand Name?" placeholder="Eg. Healthify" />
-                <Dropdown label="What's your brand category?" id="category" name="category" options={[{ value: 1, label: 'app' }]} />
-                <Dropdown label="Choose Sub category?" id="sub-category" name="subCategory" options={[{ value: 1, label: 'E-commerce' }]} />
+                <Dropdown style={{ marginTop: '10px' }} placeholder="What's your brand category?" options={[{ value: 1, label: 'app' }]} />
+                <Dropdown style={{ marginTop: '10px' }} placeholder="Choose Sub category?" options={[{ value: 1, label: 'E-commerce' }]} />
                 <Box className={style['nav-option']}> <Button disableElevation onClick={navigatePrev}>Prev</Button><Button color="primary" variant="contained" onClick={navigateNext}>Next</Button></Box>
             </div>
         </Container>
