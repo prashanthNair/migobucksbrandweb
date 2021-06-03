@@ -1,6 +1,5 @@
 import { RouteProps } from 'react-router-dom';
-import ProductDetails from "./ProductDetails/ProductDetails";
-import ProductList from "./ProductList/ProductList";
+import AddProductPage from './AddProduct';
 import MyInventory from './MyInventory/MyInventory';
 
 export interface IDashboardRouting extends RouteProps {
@@ -11,13 +10,8 @@ const DashboardRouting: IDashboardRouting[] = [
 
     {
         key: 'add',
-        path: '/products/add',
-        component: ProductDetails
-    }, 
-    {
-        key: 'products',
-        path: '/products/list',
-        component: ProductList
+        path: '/dashboard/add-new',
+        component: AddProductPage
     },
     {
         key: "myInventory",

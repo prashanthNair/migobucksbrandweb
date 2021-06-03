@@ -14,26 +14,33 @@ export interface IDropdownProps {
     options: IDropdownOptionData[];
     onSelect?: (value: IDropdownOptionData) => void;
 
+    name?: string;
     style?: React.CSSProperties;
 }
 
 const Dropdown: React.FC<IDropdownProps> = (props) => {
-    const { placeholder, options, value, onSelect, style } = props;
+    const { placeholder, options, value, onSelect, style, name } = props;
     const [isActive, setActive] = useState<boolean>(false);
+    const [val, setVal] = useState<optionValue>();
 
     const dropDownContainerRef = useRef<HTMLDivElement>(null);
 
+    useEffect(() => {
+        setVal(value);
+    }, [value]);
+
     const selectedItem = useMemo<IDropdownOptionData | undefined>(
-        () => options.find(e => e.value === value),
-        [options, value]
+        () => options.find(e => e.value === val),
+        [options, val]
     );
     const toggleDropdown = useCallback(() => { setActive(!isActive) }, [isActive]);
 
     const handleSelect = useCallback((val: IDropdownOptionData) => {
+        setVal(val.value);
         if (onSelect) {
             onSelect(val);
-            setActive(false);
         }
+        setActive(false);
     }, [onSelect]);
 
     const handleClickOutside = useCallback((event: MouseEvent) => {
@@ -60,13 +67,14 @@ const Dropdown: React.FC<IDropdownProps> = (props) => {
 
     return (
         <div style={style} ref={dropDownContainerRef} className={styles['container']}>
+            <input type="hidden" name={name} value={val} />
             <div onClick={toggleDropdown} className={styles['default']}>
                 <span>{ selectedItem ? selectedItem.label : placeholder }</span>
                 <span className={styles['arrow-container']}>{ isActive ? <UpOutlined /> : <DownOutlined /> }</span>
             </div>
             { isActive && 
                 <div className={styles['options-container']}>
-                    { !!options && options.map(el => <div id={el.value.toString()} onClick={() => handleSelect(el)} className={`${styles['option']} ${el.value === value && styles['active']}`} key={el.value}>{el.label}</div>) }
+                    { !!options && options.map(el => <div id={el.value.toString()} onClick={() => handleSelect(el)} className={`${styles['option']} ${el.value === val && styles['active']}`} key={el.value}>{el.label}</div>) }
                 </div> 
             }
         </div>
