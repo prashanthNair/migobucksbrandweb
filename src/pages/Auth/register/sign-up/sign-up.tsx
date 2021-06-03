@@ -94,6 +94,7 @@ export default function SignUp() {
           <Dropdown
             placeholder="Registration Type"
             options={[{ value: 1, label: "Private Limited" }]}
+            style={{ marginTop: '10px' }}
           />
           <TextBox
             id="kyc"
