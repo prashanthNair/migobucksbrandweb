@@ -1,18 +1,18 @@
 import React from 'react';
-import { useDynamic, IData, IDataType } from '../../../hooks/dynamic';
+import { useDynamic, IData } from '../../../hooks/dynamic';
 import styles from './Product.module.scss';
 import './dynamic.css';
 
 export const data: IData[] = [
     {
         "displayName": "Brand",
-        "dataType": IDataType.TEXT,
+        "dataType": "text",
         "fieldName": "brandName",
         "filedPosition": 1,
     },
     {
         "displayName": "Company Type",
-        "dataType": IDataType.LIST,
+        "dataType": "list",
         "fieldName": "companyType",
         "filedPosition":2,
         "data": [
@@ -32,7 +32,7 @@ export const data: IData[] = [
     },
     {
         "displayName": "Shelf Life",
-        "dataType": IDataType.LIST,
+        "dataType": "list",
         "fieldName": "shelfLife",
         "filedPosition":2,
         "data": [
@@ -64,19 +64,19 @@ export const data: IData[] = [
     },
     {
         "displayName": "Max.Retail Price(INR)",
-        "dataType": IDataType.NUMBER,
+        "dataType": "number",
         "fieldName": "mrp",
         "filedPosition": 3,
     },
     {
         "displayName": "Loyalty Point%",
-        "dataType": IDataType.NUMBER,
+        "dataType": "number",
         "fieldName": "loyaltyPoint",        
         "filedPosition":10,
     },
     {
         "displayName": "InStock",
-        "dataType": IDataType.NUMBER,
+        "dataType": "number",
         "fieldName": "inStock",
         "filedPosition":5,
     },

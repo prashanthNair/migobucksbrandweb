@@ -2,33 +2,27 @@ import React, { useState, useEffect } from 'react';
 import Dropdown, { IDropdownOptionData } from '../components/Dropdown';
 import Button from '../components/Button';
 
-export enum IDataType {
-    TEXT = "text",
-    LIST = "list",
-    NUMBER = "number",
-    ARRAY = "array"
-}
-
+export type DataType = "list" | "text" | "number";
 export interface IListData {
     name: string;
     value: string | number;
 }
 
 export type IData =
-| { dataType: IDataType.LIST, 
+| { dataType: "list", 
     displayName: string;
     fieldName: string;
     filedPosition: number;
     data: IListData[]
 }
 | {
-    dataType: IDataType.TEXT,
+    dataType: "text",
     displayName: string;
     fieldName: string; 
     filedPosition: number;
 }
 | {
-    dataType: IDataType.NUMBER,
+    dataType: "number",
     displayName: string;
     fieldName: string; 
     filedPosition: number;
@@ -45,7 +39,7 @@ export const useDynamic = (props: IUseComponentTreeProps): JSX.Element | undefin
     useEffect(() => {
         const tree = data.map(el => {
             switch(el.dataType) {
-                case IDataType.LIST: 
+                case 'list': 
                     const option: IDropdownOptionData[] = el.data.map(({ name: label, value }) => { return { label, value } });
                     return (
                     <div className="form-group">
@@ -53,14 +47,14 @@ export const useDynamic = (props: IUseComponentTreeProps): JSX.Element | undefin
                         <Dropdown name={el.fieldName} options={option} />
                     </div>
                 )
-                case IDataType.NUMBER:
+                case 'number':
                     return (
                     <div className="form-group">
                         <label>{el.displayName}</label>
                         <input type="number" name={el.fieldName} />
                     </div>
                 )
-                case IDataType.TEXT:
+                case 'text':
                     return (
                         <div className="form-group">
                             <label>{el.displayName}</label>
