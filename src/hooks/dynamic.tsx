@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Dropdown, { IDropdownOptionData } from '../components/Dropdown';
-import Button from '../components/Button';
 
 export type DataType = "list" | "text" | "number";
 export interface IListData {
@@ -32,9 +31,9 @@ export interface IUseComponentTreeProps {
     data: IData[]
 }
 
-export const useDynamic = (props: IUseComponentTreeProps): JSX.Element | undefined => {
+export const useDynamic = (props: IUseComponentTreeProps): JSX.Element[] | undefined => {
     const { data } = props;
-    const [component, setComponent] = useState<JSX.Element>();
+    const [component, setComponent] = useState<JSX.Element[]>();
 
     useEffect(() => {
         const tree = data.map(el => {
@@ -64,13 +63,7 @@ export const useDynamic = (props: IUseComponentTreeProps): JSX.Element | undefin
             } 
         });
 
-        const formJsx = (
-        <form className="add-product-form">
-            { tree }
-            <Button label="Submit" type="submit" variant="primary" />
-        </form>
-        )
-        setComponent(formJsx);
+        setComponent(tree);
     }, [data]);
 
     return component;

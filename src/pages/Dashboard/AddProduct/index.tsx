@@ -2,13 +2,15 @@ import React from 'react';
 import { useDynamic, IData } from '../../../hooks/dynamic';
 import styles from './Product.module.scss';
 import './dynamic.css';
+import { orderObjectBy } from '../../../lib/order';
+
 
 export const data: IData[] = [
     {
         "displayName": "Brand",
         "dataType": "text",
         "fieldName": "brandName",
-        "filedPosition": 1,
+        "filedPosition": 90,
     },
     {
         "displayName": "Company Type",
@@ -78,20 +80,24 @@ export const data: IData[] = [
         "displayName": "InStock",
         "dataType": "number",
         "fieldName": "inStock",
-        "filedPosition":5,
+        "filedPosition":1,
     },
 ]
 
+const sortedData = orderObjectBy({ data, key: ['filedPosition'], direction: 'asc' }) as IData[] ;
+
 
 function AddProductPage() {
-    const components = useDynamic({ data })
+    const components = useDynamic({ data: sortedData })
     return (
         <div className={styles['container']}>
             <div className={styles['header']}>
                 <h1>Add New Product</h1>
             </div>
             <div className={styles['content']}>
-                {components}
+            <form className="add-product-form">
+                { components }
+            </form>
             </div>
         </div>
     )

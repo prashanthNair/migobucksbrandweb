@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import _ from 'lodash';
 
 export interface IOrderObject {
     data: Object;
@@ -6,7 +6,7 @@ export interface IOrderObject {
     direction: "asc" | "desc"
 }
 
-export const orderObject = (payload: IOrderObject) => {
+export const orderObjectBy = (payload: IOrderObject): Object => {
     const { data, direction, key } = payload;
     return _.orderBy(data, key, direction)
 }

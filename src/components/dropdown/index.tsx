@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { DownOutlined, UpOutlined } from '@ant-design/icons';
-import styles from './Dropdown.module.scss';
+import styles from './dropdown.module.scss';
 
 export type optionValue = string | number;
 export interface IDropdownOptionData {
@@ -66,10 +66,10 @@ const Dropdown: React.FC<IDropdownProps> = (props) => {
 
 
     return (
-        <div style={style} ref={dropDownContainerRef} className={styles['container']}>
-            <input type="hidden" name={name} value={val} />
+        <div style={style || {}} ref={dropDownContainerRef} className={styles['container']}>
+            <input type="hidden" name={name || ""} value={val || ""} />
             <div onClick={toggleDropdown} className={styles['default']}>
-                <span>{ selectedItem ? selectedItem.label : placeholder }</span>
+                <span>{ selectedItem ? selectedItem.label : (<span style={{ opacity: 0.6 }}>{placeholder || "Select"}</span>) }</span>
                 <span className={styles['arrow-container']}>{ isActive ? <UpOutlined /> : <DownOutlined /> }</span>
             </div>
             { isActive && 
