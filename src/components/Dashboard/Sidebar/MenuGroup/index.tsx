@@ -21,7 +21,7 @@ const MenuGroup: React.FC<IMenuGroupProps> = (props) => {
             </div>
             <div className={styles['menu-items']}>
                 {
-                    !!items && items.map(el => <NavLink activeClassName={styles['active']} to={el.path}>{el.label}</NavLink>)
+                    !!items && items.map(el => <NavLink key={el.path} activeClassName={styles['active']} to={el.path}>{el.label}</NavLink>)
                 }
             </div>
         </React.Fragment>

@@ -1,13 +1,89 @@
 import React, { useState, useCallback, useMemo } from 'react';
+import { Skeleton, Table, TableColumnType } from 'antd';
 import { useHistory } from 'react-router-dom';
 import Button from '../../../../components/Button';
 import ToggleBar, { IToggleBarData } from '../../../../components/ToggleBar';
 
 import styles from './ActiveProducts.module.scss';
 
+interface ITableData {
+    ProductName: string;
+    AvailIn: string;
+    mrp: string;
+    SellingPrice: string;
+    LoyaltyPoint: string;
+    BuddyMargin: string;
+    inStock: string;
+    key: number,
+}
+
+const fakeColumns: TableColumnType<any>[] = [
+    {
+        title: 'Product Name',
+        dataIndex: 'ProductName',
+        key: 'ProductName',
+        sorter: true,
+    },
+    {
+        title: 'Avail. in',
+        dataIndex: 'AvailIn',
+        key: 'AvailIn',
+    },
+    {
+        title: 'MRP',
+        dataIndex: 'mrp',
+        key: 'mrp',
+    },
+    {
+        title: 'Selling Price',
+        dataIndex: 'SellingPrice',
+        key: 'SellingPrice',
+    },
+    {
+        title: 'Loyalty Point [%]',
+        dataIndex: 'LoyaltyPoint',
+        key: 'LoyaltyPoint',
+    },
+    {
+        title: 'BuddyMargin',
+        dataIndex: 'BuddyMargin',
+        key: 'BuddyMargin',
+    },
+    {
+        title: 'In Stock',
+        dataIndex: 'inStock',
+        key: 'inStock',
+    },
+
+];
+
+const fakeData: ITableData[] = [
+    {
+        key: 2,
+        ProductName: 'Whole Wheat Atta',
+        AvailIn: '5Kg',
+        mrp: '250',
+        SellingPrice: '220',
+        LoyaltyPoint: '20',
+        BuddyMargin: '25',
+        inStock: '200'
+    },
+    {
+        key: 1,
+        ProductName: 'ABC Wheat Atta',
+        AvailIn: '5Kg',
+        mrp: '250',
+        SellingPrice: '220',
+        LoyaltyPoint: '20',
+        BuddyMargin: '25',
+        inStock: '200'
+    }
+];
+
 const ActiveProductsPage: React.FC = (props) => {
     const history = useHistory();
     const [activeTogglebarKey, setActiveToggleKey] = useState<string>('1');
+    const [selectedRowKeys, setSelectedRows] = useState<number[]>([]);
 
     const toggleBarData = useMemo<IToggleBarData[]>(() => [
         { key: '1', title: 'Exclusive' },
@@ -23,6 +99,14 @@ const ActiveProductsPage: React.FC = (props) => {
         history.push('/dashboard/add-new');
     }, [history]);
 
+    const handleRowSelect = useCallback((selectedRowKey) => {
+        if (selectedRowKeys.includes(selectedRowKey['key'])) {
+            console.log('already')
+            return setSelectedRows(selectedRowKeys.filter(e => e !== selectedRowKey['key']))
+        }
+        setSelectedRows([...selectedRowKeys, selectedRowKey['key']])
+    }, [selectedRowKeys]);
+
     return (
         <div className={styles['content']}>
         <div className={styles['tools-container']}>
@@ -30,6 +114,9 @@ const ActiveProductsPage: React.FC = (props) => {
                 <ToggleBar onSelect={handleToggleSelect} activeKey={activeTogglebarKey} items={toggleBarData}  />
             </div>
             <Button onClick={handleAddItemBtnClick} className={styles['add-item-btn']} variant="primary" label={"Add New +"} />
+        </div>
+        <div style={{ marginTop: '10px' }}>
+            <Table rowSelection={{ selectedRowKeys: selectedRowKeys, onSelect: handleRowSelect }} columns={fakeColumns} dataSource={fakeData}/>
         </div>
     </div>
     )
