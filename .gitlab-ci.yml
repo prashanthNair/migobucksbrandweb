@@ -20,7 +20,7 @@ deploy_development:
   environment:
     name: Development
   only:
-    - develop
+    - dev
   script:
     - npm run build
     - export UPLOAD_DIR=development
