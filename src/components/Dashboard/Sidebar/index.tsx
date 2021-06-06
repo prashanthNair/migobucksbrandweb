@@ -73,11 +73,11 @@ const Sidebar: React.FC<ISidebarProps> = (props) => {
                 </div>
             </div>
             {/* Main */}
-            <MenuGroup title="Menu" items={MenuItems} />
+            <MenuGroup title="MENU" items={MenuItems} />
             <div style={{ marginTop: '25px' }} />
 
             {/* Services */}
-            <MenuGroup title="Services" items={serviceItems} />
+            <MenuGroup title="MIGO SERVICES" items={serviceItems} />
 
              {/* Teams */}
 

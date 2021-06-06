@@ -11,7 +11,7 @@ function RegisterSuccess(props: Props) {
 
   const history = useHistory();
   const navigateNext = () => {
-    history.push("/product");
+    history.push("/dashboard");
   };
 
 

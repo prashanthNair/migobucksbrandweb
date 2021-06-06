@@ -22,7 +22,9 @@ const fakeColumns: TableColumnType<any>[] = [
         title: 'Product Name',
         dataIndex: 'ProductName',
         key: 'ProductName',
-        sorter: true,
+        sorter: function(a, b) {
+            return 1
+        },
     },
     {
         title: 'Avail. in',
@@ -71,12 +73,12 @@ const fakeData: ITableData[] = [
     {
         key: 1,
         ProductName: 'ABC Wheat Atta',
-        AvailIn: '5Kg',
+        AvailIn: '54Kg',
         mrp: '250',
-        SellingPrice: '220',
+        SellingPrice: '400',
         LoyaltyPoint: '20',
-        BuddyMargin: '25',
-        inStock: '200'
+        BuddyMargin: '14',
+        inStock: '670'
     }
 ];
 
@@ -101,7 +103,6 @@ const ActiveProductsPage: React.FC = (props) => {
 
     const handleRowSelect = useCallback((selectedRowKey) => {
         if (selectedRowKeys.includes(selectedRowKey['key'])) {
-            console.log('already')
             return setSelectedRows(selectedRowKeys.filter(e => e !== selectedRowKey['key']))
         }
         setSelectedRows([...selectedRowKeys, selectedRowKey['key']])
@@ -115,7 +116,7 @@ const ActiveProductsPage: React.FC = (props) => {
             </div>
             <Button onClick={handleAddItemBtnClick} className={styles['add-item-btn']} variant="primary" label={"Add New +"} />
         </div>
-        <div style={{ marginTop: '10px' }}>
+        <div style={{ marginTop: '30px' }}>
             <Table rowSelection={{ selectedRowKeys: selectedRowKeys, onSelect: handleRowSelect }} columns={fakeColumns} dataSource={fakeData}/>
         </div>
     </div>
