@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - '8'
+  - '14.17.0'
 before_cache:
   # awss3-deploy
   - pip install --user awscli
