@@ -1,0 +1,33 @@
+language: node_js
+node_js:
+  - '8'
+before_cache:
+  # awss3-deploy
+  - pip install --user awscli
+
+before_deploy:
+  - export BUCKET=s3-deployed-app LOCAL_DIR=build
+  - npm run build
+  - export PATH=./node_modules/.bin:$PATH
+
+branches:
+  only:
+    - develop
+    - master
+
+deploy:
+  - provider: script
+    skip_cleanup: true
+    script:
+      - export UPLOAD_DIR=development
+      - awss3-deploy
+    on:
+      branch: develop
+
+  - provider: script
+    skip_cleanup: true
+    script:
+      - export UPLOAD_DIR=staging
+      - awss3-deploy
+    on:
+      branch: master
