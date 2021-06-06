@@ -12,7 +12,7 @@ before_deploy:
 
 branches:
   only:
-    - develop
+    - dev
     - master
 
 deploy:
@@ -22,7 +22,7 @@ deploy:
       - export UPLOAD_DIR=development
       - awss3-deploy
     on:
-      branch: develop
+      branch: dev
 
   - provider: script
     skip_cleanup: true
