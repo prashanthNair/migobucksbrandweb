@@ -1,38 +1,107 @@
-image: node:14.17.0
+# image: node:14.17.0
 
+# cache:
+#   paths:
+#     - node_modules/
+
+# before_script:
+#   - apt-get update
+#   - apt-get install -y -qq python3-dev python3-pip
+#   - pip3 install --upgrade awscli
+#   - export PATH=./node_modules/.bin:$PATH
+#   - npm install
+
+# variables:
+#   BUCKET: "mib-s3"
+#   LOCAL_DIR: "build"
+
+# deploy_development:
+#   stage: deploy
+#   environment:
+#     name: Development
+#   only:
+#     - dev
+#   script:
+#     - npm run build
+#     - export UPLOAD_DIR=development
+#     - awss3-deploy
+
+# deploy_staging:
+#   stage: deploy
+#   environment:
+#     name: Staging
+#   only:
+#     - master
+#   script:
+#     - npm run build
+#     - export UPLOAD_DIR=staging
+#     - awss3-deploy
+
+# Cache node modules - speeds up future builds
 cache:
   paths:
-    - node_modules/
+    - node_modules
 
-before_script:
-  - apt-get update
-  - apt-get install -y -qq python3-dev python3-pip
-  - pip3 install --upgrade awscli
-  - export PATH=./node_modules/.bin:$PATH
-  - npm install
+stages:
+  - build
+  - run
 
 variables:
-  BUCKET: "mib-s3"
-  LOCAL_DIR: "build"
+  S3_BUCKET_DEV: ${BUCKET_DEV}
+  S3_BUCKET_PROD: ${BUCKET_PROD}
 
-deploy_development:
-  stage: deploy
-  environment:
-    name: Development
+.yarn_build:
+  image: node:10
+  script: |
+    npm install 
+    npm run build  
+  artifacts:
+    paths:
+      - ./build
+      
+yarn_dev:
+  extends: .yarn_build
+  stage: build
+  before_script:
+    - export APP_ENV="dev"
   only:
-    - dev
-  script:
-    - npm run build
-    - export UPLOAD_DIR=development
-    - awss3-deploy
+    refs:
+      - develop
 
-deploy_staging:
-  stage: deploy
-  environment:
-    name: Staging
+yarn_prod:
+  extends: .yarn_build
+  stage: build
+  before_script:
+    - export APP_ENV="prod"
   only:
-    - master
-  script:
-    - npm run build
-    - export UPLOAD_DIR=staging
-    - awss3-deploy
+    refs:
+      - master
+
+.deploy_aws:
+  image: python:latest
+  when: manual
+  script: |
+    pip install awscli #Install awscli tools
+    aws s3 sync ./build/ s3://${S3_BUCKET_DEV}
+
+deploy_dev:
+  extends: .deploy_aws
+  stage: run
+  dependencies:
+    - yarn_dev
+  before_script:
+    - export S3_BUCKET=${S3_BUCKET_DEV}
+  only:
+    refs:
+      - develop
+
+deploy_prod:
+  extends: .deploy_aws
+  stage: run
+  dependencies:
+    - yarn_prod
+  before_script:
+    - export S3_BUCKET=${S3_BUCKET_PROD}
+  only:
+    refs:
+      - master
