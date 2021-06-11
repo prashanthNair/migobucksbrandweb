@@ -6,11 +6,7 @@ stages:
   - build
   - run
 
-variables:
-  S3_BUCKET_DEV: ${BUCKET_DEV}
-  S3_BUCKET_PROD: ${BUCKET_PROD}
-
-.yarn_build:
+.build:
   image: node:10
   script: |
     npm install 
@@ -19,17 +15,17 @@ variables:
     paths:
       - ./build
       
-yarn_dev:
-  extends: .yarn_build
+brand_dev:
+  extends: .build
   stage: build
   before_script:
     - export APP_ENV="dev"
   only:
     refs:
-      - develop
+      - dev
 
-yarn_prod:
-  extends: .yarn_build
+brand_prod:
+  extends: .build
   stage: build
   before_script:
     - export APP_ENV="prod"
@@ -42,26 +38,26 @@ yarn_prod:
   when: manual
   script: |
     pip install awscli #Install awscli tools
-    aws s3 sync ./build/ s3://${S3_BUCKET_DEV}
+    aws s3 sync ./build/ s3://mib-s3-prod
 
 deploy_dev:
   extends: .deploy_aws
   stage: run
   dependencies:
-    - yarn_dev
+    - brand_dev
   before_script:
-    - export S3_BUCKET=${S3_BUCKET_DEV}
+    - export S3_BUCKET=mib-s3-prod
   only:
     refs:
-      - develop
+      - dev
 
 deploy_prod:
   extends: .deploy_aws
   stage: run
   dependencies:
-    - yarn_prod
+    - brand_prod
   before_script:
-    - export S3_BUCKET=${S3_BUCKET_PROD}
+    - export S3_BUCKET=mib-s3-prod
   only:
     refs:
       - master
