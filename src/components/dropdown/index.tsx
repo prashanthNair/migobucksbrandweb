@@ -7,24 +7,20 @@ export interface IDropdownOptionData {
     value: optionValue;
     label: string;
 }
-
 export interface IDropdownProps {
     placeholder?: string;
     value?: optionValue;
     options: IDropdownOptionData[];
     onSelect?: (value: IDropdownOptionData) => void;
-
     name?: string;
     style?: React.CSSProperties;
 }
-
 const Dropdown: React.FC<IDropdownProps> = (props) => {
     const { placeholder, options, value, onSelect, style, name } = props;
     const [isActive, setActive] = useState<boolean>(false);
     const [val, setVal] = useState<optionValue>();
 
     const dropDownContainerRef = useRef<HTMLDivElement>(null);
-
     useEffect(() => {
         setVal(value);
     }, [value]);
