@@ -7,7 +7,7 @@ import {
   Route,
   Switch,
 } from 'react-router-dom'; 
-import AppRouting from './app.routing';
+import AppRouting from './App.routing';
 
 const App = () => {
   return (
