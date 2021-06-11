@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';  
-import Dropdown, { IDropdownOptionData } from '../components/dropdown';
+import Dropdown, { IDropdownOptionData } from '../components/Dropdown';
 export type DataType = "list" | "text" | "number";
 export interface IListData {
     name: string;

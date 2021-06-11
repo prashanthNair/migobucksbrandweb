@@ -10,7 +10,7 @@ import {
  
 import style from './register-brand.module.scss';  
 import TextBox from '../../../../components/text-box/text-box'; 
-import Dropdown from '../../../../components/dropdown/index'
+import Dropdown from '../../../../components/Dropdown/index'
 
 interface Props { }
 

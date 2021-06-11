@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { DownOutlined, UpOutlined } from '@ant-design/icons';
-import styles from './dropdown.module.scss';
+import styles from './Dropdown.module.scss';
 
 export type optionValue = string | number;
 export interface IDropdownOptionData {
