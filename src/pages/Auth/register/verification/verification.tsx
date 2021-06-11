@@ -6,8 +6,7 @@ import {
   Button,
   Container,
 } from '@material-ui/core';
-
-import Dropdown from '../../../../components/dropdown/dropdown';
+ 
 import TextBox from '../../../../components/text-box/text-box';
 import style from './verification.module.scss';
 

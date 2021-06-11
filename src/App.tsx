@@ -1,24 +1,44 @@
+import React, { useState, useEffect, useCallback } from 'react';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import { message, Alert } from 'antd';
+import ProtectedRoute from './components/Route/Protected';
+import AppRouting, { IAppRouting } from './App.routing';
+import Loading from './components/Loading';
 
-import React from 'react';
+const App: React.FC = () => {
+  const [networkConnected, setNetworkConnected] = useState<boolean>(true);
 
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch,
-} from 'react-router-dom'; 
-import AppRouting from './App.routing';
+  const handleOfflineEvent = useCallback(() => {
+    console.log('network disconnected...');
+    setNetworkConnected(false);
+  }, []);
 
-const App = () => {
+  const handleOnlineEvent = useCallback(() => {
+    message.success('Connected to the internet.')
+    setNetworkConnected(true);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('offline', handleOfflineEvent);
+    window.addEventListener('online', handleOnlineEvent);
+
+    return () => {
+      window.removeEventListener('offline', handleOfflineEvent);
+      window.removeEventListener('online', handleOnlineEvent);
+    };
+  }, [handleOfflineEvent, handleOnlineEvent]);
+
+
   return (
-    <Router>
       <Switch>
+        <Loading>
+        { !networkConnected && <Alert style={{ fontSize: '18px' }} closable type="error" banner message={"You are offline. Please connect to the internet"} /> }
         <Route exact path='/'>
           <Redirect to="/auth"></Redirect>
         </Route>
-        {AppRouting.map((entry) => { return (<Route {...entry} />) })}
+        { AppRouting.map((props: IAppRouting) => ( props.protected ? <ProtectedRoute {...props} fallbackRedirect="/" /> : <Route {...props} />)) }
+        </Loading>
       </Switch>
-    </Router>
   );
 }
 
