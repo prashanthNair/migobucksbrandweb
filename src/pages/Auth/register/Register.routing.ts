@@ -1,4 +1,4 @@
-import BrandType from "./Brand-type/Brand-type";
+import BrandType from "./Brand-type/Band-type";
 import CreatePassword from "./Create-password/Create-password";
 import RegisterBrand from "./Register-brand/Register-brand";
 import SignUp from "./Sign-up/Sign-up";
