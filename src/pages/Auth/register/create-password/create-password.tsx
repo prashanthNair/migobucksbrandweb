@@ -7,7 +7,7 @@ import {
   Container,
 } from '@material-ui/core';
 
-import style from './create-password.module.scss';
+import style from './Create-password.module.scss';
 import TextBox from '../../../../components/text-box/text-box';
 
 interface Props {}

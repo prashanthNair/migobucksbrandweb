@@ -8,8 +8,8 @@ import {
 } from '@material-ui/core';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
-import { brandTypesArray } from './brand-type-const';
-import style from './brand-type.module.scss';
+import { brandTypesArray } from './Brand-type-const';
+import style from './Brand-type.module.scss';
 
 let brandTypes = brandTypesArray;
 const Brands = (props: any) => {

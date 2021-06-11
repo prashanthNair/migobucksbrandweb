@@ -7,7 +7,7 @@ import {
   useHistory,
 } from 'react-router-dom';
 
-import style from './Register.module.scss';
+import style from './Register.module.scss'; 
 import RegisterRouting from './Register.routing';
 
 function Register() {

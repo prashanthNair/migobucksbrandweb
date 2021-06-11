@@ -15,7 +15,7 @@ import {
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs'; 
 import TextBox from '../../../../components/text-box/text-box';
-import style from './sign-up.module.scss'; 
+import style from './Sign-up.module.scss'; 
 import Dropdown from '../../../../components/Dropdown';
 
 interface TabPanelProps {

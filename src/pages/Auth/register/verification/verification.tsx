@@ -8,7 +8,7 @@ import {
 } from '@material-ui/core';
  
 import TextBox from '../../../../components/text-box/text-box';
-import style from './verification.module.scss';
+import style from './Verification.module.scss';
 
 interface Props {}
 

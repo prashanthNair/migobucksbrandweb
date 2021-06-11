@@ -8,7 +8,7 @@ import {
   Container,
 } from '@material-ui/core';
  
-import style from './register-brand.module.scss';  
+import style from './Register-brand.module.scss';  
 import TextBox from '../../../../components/text-box/text-box'; 
 import Dropdown from '../../../../components/Dropdown/index'
 

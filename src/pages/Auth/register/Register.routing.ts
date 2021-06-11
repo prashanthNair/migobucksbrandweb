@@ -1,9 +1,10 @@
-import BrandType from './brand-type/brand-type';
-import CreatePassword from './create-password/create-password';
-import RegisterBrand from './register-brand/register-brand';
-import SignUp from './sign-up/sign-up';
-import Verification from './verification/verification'; 
+import BrandType from "./Brand-type/Brand-type";
+import CreatePassword from "./Create-password/Create-password";
+import RegisterBrand from "./Register-brand/Register-brand";
+import SignUp from "./Sign-up/Sign-up";
+import Verification from "./Verification/Verification";
 
+ 
 const RegisterRouting = [
     {
         path: '/auth/register/brand-type',
