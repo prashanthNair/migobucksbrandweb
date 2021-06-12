@@ -16,7 +16,7 @@ const Brands = (props: any) => {
   const changeOption = () => {
     if (!props.isChecked) {
       brandTypes = brandTypes.map((x: any) => {
-        if (x.head == props.head) {
+        if (x.head === props.head) {
           x.isChecked = true;
         } else {
           x.isChecked = false;

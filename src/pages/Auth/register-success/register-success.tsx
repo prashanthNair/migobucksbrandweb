@@ -3,7 +3,7 @@ import React from 'react';
 import { Button, Container } from '@material-ui/core';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle'; 
 import style from './Register-success.module.scss';
-import { Redirect, Route, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 interface Props { }
 

@@ -37,8 +37,8 @@ brand_prod:
   image: python:latest
   when: manual
   script: |
-    pip install awscli #Install awscli tools
-    aws s3 sync ./build/ s3://mib-s3-prod
+    pip install awscli #Install awscli tools   
+    aws s3 sync ./build/ s3://mib-s3  #bucket name should be from env variable
 
 deploy_dev:
   extends: .deploy_aws
@@ -46,7 +46,8 @@ deploy_dev:
   dependencies:
     - brand_dev
   before_script:
-    - export S3_BUCKET=mib-s3-prod
+    #  bucket name should be from env variable
+    - export S3_BUCKET=mib-s3
   only:
     refs:
       - dev

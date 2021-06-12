@@ -1,16 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
-
-import styles from './Header.module.scss';
-
-import AuthenticatedHeader from './Authenticated';
-import DefaultHeader from './Default';
+import styles from './Header.module.scss'; 
+import AuthenticatedHeader from './Authenticated'; 
 import Notifications from './Notifications';
-
 import logo from '../../assets/BrandsLogo.svg'
 
 const Header: React.FC = (props) => {
-
-    const [ isAuthenticated, setAuthenticated ] = useState<boolean>(true);
+ 
     const [notificationWindowOpen, setNotificationWindowOpen] = useState<boolean>(false);
 
     useEffect(() => {
@@ -25,20 +20,16 @@ const Header: React.FC = (props) => {
             <div className={styles['logo']}>
                 <img src={logo} alt="migobucks-logo" />
             </div>
-            {
-                isAuthenticated
-                ? <AuthenticatedHeader 
-                    onNotificationClick={toggleNotificationWindow} 
-                    searchPlaceholder="Search" 
-                    />
-                : <DefaultHeader />
-            }
+            <AuthenticatedHeader
+                onNotificationClick={toggleNotificationWindow}
+                searchPlaceholder="Search"
+            />
             <div>
                 {
-                    notificationWindowOpen 
-                    && <Notifications 
-                        onClickOutside={handleNotificationOnClickOutside} 
-                        />
+                    notificationWindowOpen
+                    && <Notifications
+                        onClickOutside={handleNotificationOnClickOutside}
+                    />
                 }
             </div>
         </div>

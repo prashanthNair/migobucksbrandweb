@@ -7,13 +7,17 @@ export interface IProtectedRouteProps extends RouteProps {
 
 const ProtectedRoute: React.FC<IProtectedRouteProps> = (props) => {
     const { fallbackRedirect } = props;
-    const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true);
-
+    const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+    setIsAuthenticated(true)
     useEffect(() => {
         // TODO: Implement auth logic.
     }, []);
 
-    return isAuthenticated ? <Route {...props} /> : <Redirect to={fallbackRedirect} />
+    if (isAuthenticated) {
+        return <Route {...props} />
+    } else {
+        return <Redirect to={fallbackRedirect} />
+    }
 }
 
 export default ProtectedRoute;

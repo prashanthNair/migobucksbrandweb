@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useMemo } from 'react';
-import { Skeleton, Table, TableColumnType } from 'antd';
+import { Table, TableColumnType } from 'antd';
 import { useHistory } from 'react-router-dom';
 import Button from '../../../../components/Button';
 import ToggleBar, { IToggleBarData } from '../../../../components/ToggleBar';

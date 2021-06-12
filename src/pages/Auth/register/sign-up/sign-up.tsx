@@ -51,19 +51,8 @@ function a11yProps(index: any) {
   };
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
-    alignItems: "center",
-  },
-  container: {
-    maxWidth: "400px",
-  },
-}));
 
 export default function SignUp() {
-  const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
